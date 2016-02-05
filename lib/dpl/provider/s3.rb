@@ -40,9 +40,13 @@ module DPL
       def upload_path(filename)
         [options[:upload_dir], filename].compact.join("/")
       end
+      
+      def glob
+        options[:glob]
+      end
 
       def push_app
-        glob_args = ["**/*"]
+        glob_args = glob || ["**/*"]
         glob_args << File::FNM_DOTMATCH if options[:dot_match]
         Dir.chdir(options.fetch(:local_dir, Dir.pwd)) do
           Dir.glob(*glob_args) do |filename|

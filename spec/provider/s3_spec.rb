@@ -149,6 +149,12 @@ describe DPL::Provider::S3 do
       expect(Dir).to receive(:glob).with("**/*", File::FNM_DOTMATCH)
       provider.push_app
     end
+    
+    example "when glob is set" do
+      provider.options.update(:glob => ["**/*.js","**/*.css"])
+      expect(Dir).to receive(:glob).with("**/*.js","**/*.css")
+      provider.push_app
+    end
   end
 
   describe "#check_app" do

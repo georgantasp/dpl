@@ -349,6 +349,7 @@ For authentication you can also use Travis CI secure environment variable:
 * **acl**: Sets the access control for the uploaded objects. Defaults to `private`. Valid options are `private`, `public_read`, `public_read_write`, `authenticated_read`, `bucket_owner_read`, `bucket_owner_full_control`.
 * **dot_match**: When set to `true`, upload files starting a `.`.
 * **index_document_suffix**: Set the index document of a S3 website.
+* **glob**: Set the glob option. Defaults to `["**/*"]`
 
 #### File-specific `Cache-Control` and `Expires` headers
 
